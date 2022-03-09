@@ -216,7 +216,7 @@ globalkeys = gears.table.join(
 
     -- Dmenu
     awful.key({ modkey },            "r",     function () 
-    awful.util.spawn("dmenu_run") end,
+    awful.util.spawn("dmenu_run -b") end,
               {description = "run dmenu", group = "launcher"}),
 
     -- Firefox
@@ -226,7 +226,7 @@ globalkeys = gears.table.join(
 
     -- Lockscreen
     awful.key({ modkey },            "l",     function ()    
-        awful.util.spawn("i3lock -i /home/spleenftw/Wallpapers/black.png -u") end,
+        awful.util.spawn("slock") end,
                   {description = "lockscreen", group = "launcher"}),
 
     -- Discord
@@ -443,8 +443,8 @@ naughty.config.defaults.icon_size = 0
 
 -- Autostart
 -- awful.spawn.with_shell("feh --bg-scale /home/spleenftw/Wallpapers/anime-cityscape.jpg")
-awful.spawn.with_shell("feh --bg-scale /home/spleenftw/Github/Repos/wallpapers/gruvbox_girl_dark.png")
+awful.spawn.with_shell("feh --bg-scale /home/spleenftw/Github/Repos/dracula-wallpapers/Art/4k/Ship.png")
 awful.spawn.with_shell("compton")
 -- awful.spawn.with_shell("picom")
 awful.spawn.with_shell("bash /home/spleenftw/.config/polybar/launch.sh")
-
+awful.spawn.with_shell("xautolock -time 5 -locker slock")
