@@ -6,7 +6,6 @@ $username\
 $directory\
 $hostname\
 $time\
-$battery\
 $status\
 $cmd_duration\
 $character"""
@@ -34,11 +33,6 @@ time_format = "%T"
 format = "| $time($style) | "
 style = "bright-white"
 disabled = false
-
-[battery]
-full_symbol = "🔋"
-charging_symbol = "🔌"
-discharging_symbol = "⚡"
 
 [[battery.display]]
 threshold = 25

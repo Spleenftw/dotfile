@@ -436,15 +436,20 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 -- }}}
 
 -- Gaps
-beautiful.useless_gap = 5
+beautiful.useless_gap = 6
 
 -- Notifications
-naughty.config.defaults.icon_size = 0
+-- beautiful.notification_icon_size = 32
+beautiful.notification_opacity = 0
+
 
 -- Autostart
 -- awful.spawn.with_shell("feh --bg-scale /home/spleenftw/Wallpapers/anime-cityscape.jpg")
-awful.spawn.with_shell("feh --bg-scale /home/spleenftw/Github/Repos/dracula-wallpapers/Art/4k/Ship.png")
+-- awful.spawn.with_shell("feh --bg-scale /home/spleenftw/Github/Repos/dracula-wallpapers/Art/4k/Ship.png")
+awful.spawn.with_shell("feh --bg-scale /home/spleenftw/Github/Linux/Files/Wallpapers/1096464.jpg")
+
 awful.spawn.with_shell("compton")
 -- awful.spawn.with_shell("picom")
 awful.spawn.with_shell("bash /home/spleenftw/.config/polybar/launch.sh")
+awful.spawn.with_shell("xinput set-prop 'ELAN2602:00 04F3:3109 Touchpad' 'libinput Tapping Enabled' 1")
 awful.spawn.with_shell("xautolock -time 5 -locker slock")
