@@ -116,7 +116,7 @@ end
 
 
 -- Menubar configuration
-menubar.utils.terminal = terminal -- Set the terminal for applications that require it
+menubar.utils.terminal = alacritty -- Set the terminal for applications that require it
 -- }}}
 
 
@@ -140,7 +140,7 @@ awful.screen.connect_for_each_screen(function(s)
     set_wallpaper(s)
 
     -- Each screen has its own tag table.
-    awful.tag({ "1", "2", "3", "4", "5", "6", "7", "8", "9" }, s, awful.layout.layouts[1])
+    awful.tag({ "1", "2", "3", "4", "5", "6", "7" }, s, awful.layout.layouts[1])
 
 end)
 -- }}}
@@ -184,7 +184,6 @@ globalkeys = gears.table.join(
               {description = "reload awesome", group = "awesome"}),
     awful.key({ modkey, "Shift"   }, "q", awesome.quit,
               {description = "quit awesome", group = "awesome"}),
-
     awful.key({ modkey,           }, "m",     function () awful.tag.incmwfact( 0.15)          end,
               {description = "increase master width factor", group = "layout"}),
     awful.key({ modkey,           }, "h",     function () awful.tag.incmwfact(-0.15)          end,
@@ -238,7 +237,11 @@ globalkeys = gears.table.join(
     awful.key({ modkey },             "w",function ()    
         awful.util.spawn("rofi -no-config -no-lazy-grab -show drun -modi drun -theme ~/.config/polybar/scripts/rofi/launcher.rasi") end,
                   {description = "run menu", group = "launcher"}),
-
+    
+    -- Screenshots
+    awful.key({ modkey, "Shift"},             "s",function ()    
+        awful.util.spawn("gnome-screenshot -a -c -f /home/spleenftw/Images/Screenshots/Screenshot_'(date +'%0y%0m%0d_%0H%0M%0S')'.png") end,
+                  {description = "Screenshots", group = "launcher"}),
 
     -- Menubar
     awful.key({ modkey }, "p", function() menubar.show() end,
@@ -436,7 +439,7 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 -- }}}
 
 -- Gaps
-beautiful.useless_gap = 6
+beautiful.useless_gap = 10
 
 -- Notifications
 -- beautiful.notification_icon_size = 32
@@ -446,7 +449,9 @@ beautiful.notification_opacity = 0
 -- Autostart
 -- awful.spawn.with_shell("feh --bg-scale /home/spleenftw/Wallpapers/anime-cityscape.jpg")
 -- awful.spawn.with_shell("feh --bg-scale /home/spleenftw/Github/Repos/dracula-wallpapers/Art/4k/Ship.png")
-awful.spawn.with_shell("feh --bg-scale /home/spleenftw/Github/Linux/Files/Wallpapers/1096464.jpg")
+-- awful.spawn.with_shell("feh --bg-scale /home/spleenftw/Github/Linux/Files/Wallpapers/1096464.jpg")
+-- awful.spawn.with_shell("feh --bg-scale /home/spleenftw/Github/Linux/Files/Wallpapers/fleurcerisier.jpg")
+awful.spawn.with_shell("feh --bg-scale -z /home/spleenftw/Github/Linux/Files/Wallpapers/")
 
 awful.spawn.with_shell("compton")
 -- awful.spawn.with_shell("picom")
